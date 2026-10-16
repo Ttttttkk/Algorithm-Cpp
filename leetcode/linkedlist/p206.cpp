@@ -22,6 +22,16 @@ struct ListNode {
       }
       return pre;
     }
+     ListNode* reverse(ListNode* head) {
+        if(head==nullptr||head->next==nullptr){
+            return head;
+        }
+        ListNode *newhead=reverse(head->next);
+        head->next->next=head;
+        head->next=nullptr;
+        return newhead;
+
+     }
 
 signed main() {
     int n;
